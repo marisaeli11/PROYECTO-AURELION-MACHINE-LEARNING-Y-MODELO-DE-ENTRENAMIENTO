@@ -85,3 +85,26 @@ Se optó por un modelo Supervisado (Clasificación) en lugar de No Supervisado (
 
 ### Frontera de Decisión
 ![Frontera](./grafico_frontera_decision.png)
+
+---
+
+## 🚀 Oportunidad de Mejora: Fase 2 (Inferencia y Scoring)
+
+**Más allá del Sprint:**
+Aunque el requerimiento del Sprint finaliza con el entrenamiento del modelo, hemos decidido avanzar hacia una **implementación realista** para demostrar el valor de negocio.
+
+**¿Por qué esta evolución?**
+Un modelo guardado no genera valor si no se utiliza. Hemos creado un script de **Inferencia** (ubicado en la carpeta `BONUS_Fase_2_Prediccion`) que simula la llegada de nuevos datos y utiliza el modelo `.pkl` para tomar decisiones automáticas.
+
+### 🧪 Sobre los Datos de Prueba (Simulación)
+Para ejecutar esta fase de inferencia **no hace falta cargar un CSV externo**.
+
+*   **Mecanismo:** El script `prediccion_nuevos_clientes.py` contiene un generador interno de datos sintéticos (un diccionario de Python) que crea 5 perfiles de clientes ficticios al ejecutarse.
+*   **Objetivo:** Esto demuestra cómo el modelo podría integrarse en un sistema en tiempo real (como una API o una Web) donde los datos llegan "en vivo", sin depender siempre de archivos estáticos.
+
+**Archivos en la carpeta BONUS:**
+1.  `prediccion_nuevos_clientes.py`: Script que carga el cerebro del modelo, genera datos simulados de nuevos clientes y aplica las predicciones.
+2.  `REPORTE_FINAL_MARKETING.csv`: El resultado tangible para el negocio. Una lista de clientes con su probabilidad de fidelidad calculada y la etiqueta **"⭐ FIDELIZAR"** asignada automáticamente.
+
+**Conclusión:**
+Esto cierra el ciclo completo de Data Science: **Entrenamiento (Pasado) -> Inferencia (Futuro).**

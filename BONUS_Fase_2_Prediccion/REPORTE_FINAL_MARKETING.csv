@@ -1,0 +1,6 @@
+id_cliente,nombre,recency_days,monetary_log,ciudad,categoria_preferida,Es_VIP_Potencial,Probabilidad,Estado
+1001,Juan Perez,5,11.5,Cordoba,Alimentos,1,0.9322969512640388,⭐ FIDELIZAR
+1002,Maria Gomez,150,8.5,Villa Maria,Limpieza,0,0.009704511723505952,Normal
+1003,Carlos Ruiz,10,10.8,Carlos Paz,Alimentos,1,0.7329197875989523,⭐ FIDELIZAR
+1004,Ana Diaz,300,9.0,Cordoba,Limpieza,0,0.005053066794365665,Normal
+1005,Luis Torres,2,11.2,Rio Cuarto,Alimentos,1,0.9578696261336094,⭐ FIDELIZAR
