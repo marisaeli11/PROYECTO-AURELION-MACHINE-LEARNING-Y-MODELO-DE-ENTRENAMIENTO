@@ -1,0 +1,68 @@
+id_cliente,cliente,ciudad,recency_days,frequency,monetary,monetary_log,categoria_preferida,is_fidelizado
+1,Mariana Lopez,Carlos Paz,94,2,72448,11.190638145031073,Alimentos,1
+2,Nicolas Rojas,Carlos Paz,77,1,22150,10.00563792118106,Alimentos,0
+3,Hernan Martinez,Rio Cuarto,133,1,33310,10.413642951751815,Alimentos,0
+5,Agustina Flores,Cordoba,3,4,132158,11.791761022140221,Alimentos,1
+6,Uma Medina,Villa Maria,136,2,48878,10.797103135371065,Alimentos,1
+8,Bruno Castro,Carlos Paz,171,1,61503,11.026857492329965,Alimentos,0
+9,Yamila Molina,Carlos Paz,95,2,41840,10.641631999026805,Limpieza,1
+10,Karina Acosta,Cordoba,9,1,25860,10.16049132133844,Limpieza,0
+12,Gael Gomez,Alta Gracia,60,2,49518,10.810111713293512,Alimentos,1
+13,Ivana Sanchez,Carlos Paz,59,1,13188,9.487138427825885,Alimentos,0
+14,Gael Martinez,Carlos Paz,38,1,38570,10.560255977752359,Alimentos,0
+15,Tomas Ruiz,Cordoba,14,3,45929,10.734873777319839,Alimentos,1
+16,Felipe Alvarez,Rio Cuarto,54,1,27829,10.233869854519936,Alimentos,0
+17,Pablo Gomez,Villa Maria,162,1,7752,8.955835144218959,Alimentos,0
+18,Ivana Torres,Carlos Paz,91,1,20544,9.93037288131751,Limpieza,0
+19,Uma Silva,Mendiolaza,37,2,44563,10.704681637179208,Alimentos,1
+20,Tomas Acosta,Rio Cuarto,79,2,27723,10.230053743037875,Alimentos,1
+21,Elena Rodriguez,Alta Gracia,128,1,20048,9.90593455617918,Alimentos,0
+23,Helena Fernandez,Rio Cuarto,131,1,19825,9.894749486592843,Alimentos,0
+25,Karina Castro,Rio Cuarto,9,2,81830,11.312411423903804,Alimentos,1
+26,Camila Sanchez,Alta Gracia,124,2,31134,10.346087867306553,Alimentos,1
+27,Tomas Castro,Rio Cuarto,0,2,27059,10.205811901724779,Alimentos,1
+28,Rocio Silva,Cordoba,161,1,15308,9.63619616973208,Alimentos,0
+29,Diego Fernandez,Alta Gracia,112,1,4283,8.36264243156764,Alimentos,0
+30,Ivana Medina,Alta Gracia,59,1,43475,10.679964340683078,Alimentos,0
+31,Felipe Ruiz,Villa Maria,150,1,53828,10.893567634380776,Alimentos,0
+34,Bruno Castro,Villa Maria,170,1,57287,10.955846456686775,Alimentos,0
+36,Martina Molina,Mendiolaza,122,1,15966,9.678279371339702,Alimentos,0
+37,Martina Perez,Mendiolaza,7,1,41537,10.63436394990608,Alimentos,0
+39,Santiago Diaz,Alta Gracia,12,4,64786,11.078860244930077,Alimentos,1
+40,Felipe Diaz,Rio Cuarto,26,2,64716,11.077779197135149,Alimentos,1
+41,Elena Rodriguez,Alta Gracia,114,2,40804,10.616559901903344,Alimentos,1
+42,Tomas Flores,Alta Gracia,43,4,60317,11.007385845633475,Alimentos,1
+43,Lucas Perez,Mendiolaza,168,1,16084,9.685642439673126,Alimentos,0
+46,Agustina Martinez,Alta Gracia,95,2,18292,9.814273751991298,Alimentos,1
+48,Rocio Alvarez,Cordoba,137,2,26403,10.181270792808661,Alimentos,1
+49,Olivia Gomez,Rio Cuarto,103,4,71321,11.174960114208679,Alimentos,1
+51,Agustina Gomez,Rio Cuarto,107,2,9800,9.19023970026918,Alimentos,1
+52,Diego Diaz,Rio Cuarto,31,3,90522,11.4133592410454,Alimentos,1
+54,Uma Herrera,Alta Gracia,95,1,21270,9.96509992166365,Alimentos,0
+55,Olivia Ruiz,Mendiolaza,14,2,28782,10.267540214063745,Alimentos,1
+56,Bruno Diaz,Rio Cuarto,1,5,90701,11.415334686576763,Alimentos,1
+57,Julian Acosta,Rio Cuarto,22,2,20436,9.925102262508537,Alimentos,1
+58,Karina Acosta,Rio Cuarto,113,2,21839,9.991498429858842,Alimentos,1
+61,Guadalupe Martinez,Rio Cuarto,29,2,67959,11.126674575785868,Alimentos,1
+62,Guadalupe Romero,Carlos Paz,9,2,19107,9.857862374509853,Alimentos,1
+64,Julian Alvarez,Villa Maria,24,2,40218,10.602094799765434,Alimentos,1
+66,Tomas Herrera,Villa Maria,99,2,45616,10.728035733044752,Alimentos,1
+67,Ivana Romero,Alta Gracia,71,1,35240,10.469965456491996,Alimentos,0
+69,Felipe Flores,Rio Cuarto,20,2,64300,11.071330462204312,Alimentos,1
+72,Camila Rodriguez,Cordoba,68,4,65001,11.08217331763518,Alimentos,1
+75,Santiago Castro,Rio Cuarto,44,2,29909,10.305948151623994,Alimentos,1
+78,Emilia Alvarez,Villa Maria,43,1,23132,10.04901544850107,Limpieza,0
+80,Gael Ruiz,Mendiolaza,17,1,24708,10.114922828718177,Alimentos,0
+81,Camila Ruiz,Carlos Paz,17,2,64502,11.074467013330139,Alimentos,1
+82,Lucas Lopez,Alta Gracia,96,1,7710,8.95040315983296,Limpieza,0
+83,Franco Gomez,Rio Cuarto,126,1,16531,9.713053175631623,Alimentos,0
+84,Pablo Sanchez,Cordoba,140,2,67575,11.121008169407332,Alimentos,1
+86,Diego Torres,Cordoba,11,2,34326,10.443687495508296,Alimentos,1
+88,Felipe Castro,Villa Maria,132,1,36639,10.508895818788067,Alimentos,0
+90,Guadalupe Ruiz,Rio Cuarto,151,1,26593,10.188440905416652,Alimentos,0
+91,Uma Sanchez,Mendiolaza,31,2,57386,10.957573075820763,Alimentos,1
+92,Mariana Rodriguez,Alta Gracia,40,2,48867,10.79687806452395,Alimentos,1
+93,Gael Rojas,Alta Gracia,117,1,35760,10.484613193102275,Alimentos,0
+96,Rocio Gonzalez,Cordoba,0,1,28175,10.246225830735987,Alimentos,0
+98,Camila Castro,Cordoba,112,1,10864,9.29330189269053,Alimentos,0
+100,Agustina Lopez,Cordoba,58,3,29883,10.305078499095693,Alimentos,1
