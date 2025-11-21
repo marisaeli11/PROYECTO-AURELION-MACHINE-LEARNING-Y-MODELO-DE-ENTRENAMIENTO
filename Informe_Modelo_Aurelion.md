@@ -1,4 +1,4 @@
-# Informe Ejecutivo y Pedagógico - Aurelion ML Sprint 3
+# Informe Ejecutivo  - Aurelion ML Sprint 3
 
 ## 📊 1. Resultados del Modelo (Métricas)
 
@@ -10,20 +10,28 @@
 
 > **Nota:** Un resultado de 100% es posible aquí porque la regla de negocio es determinística (Frecuencia >= 2). En datos reales con ruido, esperamos valores entre 85-95%.
 
+### Visualización del Modelo
+> *Imagen de la frontera de decisión.*
+
+![Frontera de Decisión](./grafico_frontera_decision.png)
+
 ---
 
 ## 🧮 2. Matriz de Confusión (Explicación)
 
-Para defender tu gráfico ante el profesor:
+Defensa del gráfico:
 
 *   **TP (Verdadero Positivo):** La IA predijo "Fiel" y acertó. (Ganancia).
 *   **TN (Verdadero Negativo):** La IA predijo "Ocasional" y acertó. (Ahorro).
 *   **FP (Falso Positivo):** La IA predijo "Fiel" pero se equivocó. (Desperdicio de Marketing).
 *   **FN (Falso Negativo):** La IA predijo "Ocasional" pero se equivocó. (Pérdida de Cliente).
 
+### Visualización de Matriz
+![Matriz Confusión](./grafico_matriz_confusion.png)
+
 ---
 
-## 🧠 3. Resumen Pedagógico (Herramientas y Proceso)
+## 🧠 3. Herramientas y Proceso
 
 ### 🛠 Herramientas Utilizadas
 *   **Lenguaje:** Python 3.8+
@@ -38,7 +46,7 @@ Para defender tu gráfico ante el profesor:
 
 ---
 
-## 🎓 4. Preguntas de Defensa (Deep Dive)
+## 🎓 4. Preguntas 
 
 **P: ¿Qué son las Iteraciones?**
 R: Imagina leer un libro de texto. Leerlo entero una vez es 1 Iteración. Aquí, el modelo leyó los datos 100 veces.
