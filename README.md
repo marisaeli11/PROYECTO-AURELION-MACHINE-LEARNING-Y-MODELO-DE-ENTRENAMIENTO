@@ -1,94 +1,87 @@
 # Proyecto Aurelion - Sprint 3: Clasificación de Fidelidad (Machine Learning)
 
 ## 📝 Inventario de Entrega
-Este proyecto se compone de los siguientes archivos que deben estar en la misma carpeta para su correcta visualización en VS Code:
+Este proyecto se compone de los siguientes archivos técnicos para su ejecución y evaluación en Visual Studio Code:
 
-1.  **sprint3_aurelion_notebook.ipynb** (Notebook Principal)
-2.  **master_rfm_aurelion_limpio.csv** (Dataset)
-3.  **entrenamiento_modelo_aurelion.py** (Script de Entrenamiento)
-4.  **grafico_distribucion_target.png** (Imagen)
-5.  **grafico_frecuencia_vs_gasto.png** (Imagen)
-6.  **grafico_frontera_decision.png** (Imagen)
+1.  **sprint3_aurelion_notebook.ipynb** (Notebook Principal con Gráficos y Guardado del Modelo)
+2.  **master_rfm_aurelion_limpio.csv** (Dataset Procesado - Requisito obligatorio)
+3.  **entrenamiento_modelo_aurelion.py** (Script de Entrenamiento Depurado)
+4.  **grafico_distribucion_target.png** (Imagen para soporte)
+5.  **grafico_frecuencia_vs_gasto.png** (Imagen para soporte)
+6.  **grafico_frontera_decision.png** (Imagen para soporte)
 
 ---
 
 ## 1. Objetivo del Modelo
-**Problema:** La tienda Aurelion tiene ventas constantes pero no identifica a sus clientes valiosos. Gastamos marketing en gente que no vuelve.
-**Solución:** Un modelo de Machine Learning (Clasificación) que etiqueta a los clientes como **Fieles** o **Ocasionales** basándose en su comportamiento histórico.
+**Problema:** La tienda Aurelion posee transacciones históricas pero carece de una segmentación predictiva.
+**Solución:** Implementación de un modelo de Machine Learning (Clasificación Binaria) que etiqueta a los clientes como **Fieles** o **Ocasionales**.
 
 ---
 
 ## 2. Descripción del Dataset (X e y)
 
-Para entrenar el modelo, dividimos la información en dos grupos. 
+Estructura de variables para el entrenamiento del modelo:
 
-| Rol en ML | Variable | Definición (Qué representa) |
+| Rol en ML | Variable | Definición Técnica |
 |-----------|----------|-----------------------------|
-| **y (Target)** | `is_fidelizado` | **La Respuesta a predecir.** <br> 1 = Cliente Fiel (2+ compras). <br> 0 = Cliente Ocasional (1 compra). |
-| **X (Excluido)** | `frequency` | **Variable de Negocio.** Define la fidelidad. **Se elimina del entrenamiento (X)** para evitar que el modelo memorice la regla. |
-| **X (Feature)** | `recency_days` | **Variable Predictora.** Cantidad de días desde la última compra hasta hoy. |
-| **X (Feature)** | `monetary_log` | **Variable Predictora.** Logaritmo del total gastado (usamos logaritmo para suavizar montos muy altos). |
+| **y (Target)** | `is_fidelizado` | **Variable Objetivo.** <br> 1 = Cliente Fiel (Frecuencia ≥ 2). <br> 0 = Cliente Ocasional (Frecuencia = 1). |
+| **X (Excluido)** | `frequency` | **Variable de Regla de Negocio.** Se excluye del set de entrenamiento para evitar Data Leakage. |
+| **X (Feature)** | `recency_days` | **Predictor.** Días transcurridos desde la última transacción. |
+| **X (Feature)** | `monetary_log` | **Predictor.** Logaritmo natural del monto total gastado. |
 
 ### 🚨 Decisión Técnica: Prevención de Data Leakage
-Durante el desarrollo, detectamos que incluir la variable `frequency` generaba un modelo con 100% de precisión artificial, lo cual indicaba una fuga de información (el modelo "leía" la regla de negocio en lugar de predecir).
-
-**Acción Tomada:**
-Decidimos eliminar `frequency` de las variables predictoras (X).
-
-**¿Por qué?**
-Queremos un modelo que pueda predecir si un cliente nuevo (con 1 sola compra) tiene potencial de ser fiel en el futuro, basándose únicamente en su perfil de gasto y recencia, sin esperar a que realice la segunda compra.
+**¿Por qué eliminamos 'frequency' del entrenamiento?**
+Definimos que *Fiel* es quien compró 2 o más veces. Si le damos la frecuencia al modelo, aprende la regla de memoria (Frecuencia >= 2 -> Fiel) y obtiene 100% de precisión falsa.
+Al eliminarla, obligamos al modelo a predecir basándose solo en **Recencia** y **Monto**, lo cual nos permite evaluar potenciales clientes fieles desde su primera compra.
 
 ---
 
-## 3. Ficha Técnica del Modelo
+## 3. Justificación Metodológica
 
-*   **Algoritmo:** Regresión Logística (`LogisticRegression`)
-*   **Librería:** Scikit-Learn (Python)
-*   **Tipo:** Clasificación Binaria Supervizada
-*   **Optimizador (Solver):** `liblinear` (Ideal para datasets pequeños)
-*   **Hiperparámetros:**
-    *   Tasa de Aprendizaje: 0.01
-    *   Iteraciones (Epochs): 100
+### ¿Por qué Clasificación y no Clustering (K-Means)?
+Se optó por un modelo Supervisado (Clasificación) en lugar de No Supervisado (K-Means) porque:
+1.  **Objetivo Definido:** El negocio ya tiene una definición clara de éxito ("Fiel" vs "Ocasional"). K-Means es exploratorio y se usa cuando no conoces los grupos.
+2.  **Predicción Directa:** Necesitamos predecir la probabilidad de fidelidad de nuevos clientes para accionar. La clasificación nos da esa respuesta directa.
 
 ### ¿Por qué Regresión Logística y no Lineal?
-*   **Lineal:** Dibuja una recta. Predice números infinitos (ej: precio, temperatura).
-*   **Logística:** Dibuja una "S". Predice **Probabilidad** (de 0 a 1). Como queremos clasificar "Sí/No", necesitamos la Logística.
+1.  **Salida Binaria:** La Regresión Lineal predice valores infinitos. La Logística está diseñada matemáticamente para resultados binarios (0 o 1).
+2.  **Probabilidad:** La Logística entrega un porcentaje de probabilidad, ideal para hacer scoring de clientes.
 
 ---
 
-## 4. Guía para la Demo (Los 10 Puntos)
+## 4. Especificaciones Técnicas
 
-| Punto Requerido | Dónde mostrarlo en VS Code |
+*   **Algoritmo:** Regresión Logística (`LogisticRegression`)
+*   **Librería:** Scikit-Learn
+*   **Optimizador:** `liblinear`
+*   **Hiperparámetros:** Tasa de Aprendizaje = 0.01, Iteraciones = 100.
+
+---
+
+## 5. Estructura del Proyecto (Guía para la Demo)
+
+| Componente | Ubicación en VS Code |
 |-----------------|----------------------------|
-| 1. Objetivo | Ver Sección 1 de este README. |
-| 2. Dataset (X e y) | Ver Sección 2 de este README (Tabla de Variables). |
+| 1. Objetivo | Sección 1 de este documento. |
+| 2. Dataset (X e y) | Sección 2 de este documento. |
 | 3. Preprocesamiento | Notebook (Celda 3): `StandardScaler` y `OneHotEncoder`. |
 | 4. División Train/Test | Notebook (Celda 4): `train_test_split`. |
-| 5. Selección Algoritmo | Notebook: `LogisticRegression`. |
-| 6. Entrenamiento | Notebook: `.fit(X_train, y_train)`. |
-| 7. Predicciones | Notebook: `.predict(X_test)`. |
-| 8. Métricas | Notebook: `confusion_matrix`, Accuracy 100%. |
-| 9. Modelo Final | Script `entrenamiento_modelo_aurelion.py`. |
-| 10. Gráficos | Ver Notebook o las imágenes adjuntas abajo. |
+| 5. Selección Algoritmo | Notebook: Instancia de `LogisticRegression`. |
+| 6. Entrenamiento | Notebook: Ejecución de `.fit(X_train, y_train)`. |
+| 7. Predicciones | Notebook: Ejecución de `.predict(X_test)`. |
+| 8. Métricas | Notebook: `confusion_matrix`, Reporte de Clasificación. |
+| 9. Modelo Final | Script exportable `entrenamiento_modelo_aurelion.py`. |
+| 10. Gráficos | Generados en el Notebook o adjuntos en la carpeta. |
 
 ---
 
-## 5. Visualización de Datos (Evidencia)
+## 6. Visualización
 
-### Distribución del Target (Balance de clases)
+### Distribución del Target
 ![Distribución](./grafico_distribucion_target.png)
 
-### Patrón de Comportamiento (Nuestras variables X)
+### Patrón de Comportamiento
 ![Patrón](./grafico_frecuencia_vs_gasto.png)
 
-### Frontera de Decisión del Modelo
+### Frontera de Decisión
 ![Frontera](./grafico_frontera_decision.png)
-
----
-
-## 6. Matriz de Confusión (Ayuda Memoria)
-
-*   **TP (Verde):** La IA dijo "Fiel" y ACERTÓ.
-*   **TN (Verde):** La IA dijo "Ocasional" y ACERTÓ.
-*   **FP (Rojo - Error Tipo 1):** Dijo "Fiel" pero era Ocasional. (Gastamos dinero en vano).
-*   **FN (Rojo - Error Tipo 2):** Dijo "Ocasional" pero era Fiel. (Perdimos un cliente VIP).
